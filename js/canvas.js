@@ -61,6 +61,22 @@ if(drawing.getContext){
 	gradientRa.addColorStop(1,'black');
 	context.fillStyle = gradientRa;
 	context.fillRect(320,100,100,100);
+
+	//模式 即重复图片
+	var loveImg = document.getElementById('xinimg');
+	var pattern = context.createPattern(loveImg,'repeat');
+	context.fillStyle = pattern;
+	context.fillRect(0,320,150,150);
+
+	//合成
+	context.shadowOffsetX = 0;
+	context.shadowOffsetY = 0;
+	context.fillStyle = "#ff0000";
+	context.fillRect(430,200,100,100);
+	// context.globalAlpha = 0.5;
+	context.globalCompositionOperation = 'destination-over';
+	context.fillStyle = 'rgba(0,0,255,1)';
+	context.fillRect(480,250,100,100);
 }
 
 
