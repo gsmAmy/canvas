@@ -4,10 +4,46 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<link rel="stylesheet" type="text/css" href="./index.css">
+	<style>
+	body{
+		/* margin:20px auto; */
+	}
+	</style>
 </head>
 <body>
+	<!-- clock -->
 	<canvas id="canvas" wigth="200" height="200"></canvas>
 	
-	<script type="text/javascript" src='./index.js'></script>
+	<!-- ball -->
+	<canvas id = "canvasRound"></canvas>
+<script>
+	/* 绘制画布 */
+	var canvasRound = document.getElementById("canvasRound");
+	var cxt = canvasRound.getContext('2d');
+	canvasRound.width = 1000;
+	canvasRound.height = 800;
+	canvasRound.style.background = "#000";
+
+	class Ball{
+		constructor(x,y,color){
+			this.x = x;
+			this.y = y;
+			this.r = 50;
+			this.color = color;
+		}
+		render(){
+			cxt.beginPath();
+
+			cxt.arc(this.x,this.y,this.r,0,2*Math.PI);
+			cxt.fillStyle = this.color;
+			cxt.fill();
+
+			cxt.restore();
+		}
+	}
+	let ball = new Ball(100,100,'red');
+	ball.render();
+</script>
+<script type="text/javascript" src='./index.js'></script>
 </body>
 </html>
