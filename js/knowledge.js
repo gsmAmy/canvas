@@ -95,7 +95,7 @@ Person.prototype = {
 	age:24 
 }
 var p2 = new Person();
-console.log(p1.name)；
+console.log(p1.name);
 console.log(p2.age);
 
 
